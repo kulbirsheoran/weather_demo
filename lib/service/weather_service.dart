@@ -6,9 +6,9 @@ import 'package:weather_demo/model/weather_response.dart';
 class WeatherService {
 
 
-  Future<WeatherResponse> getWeatherData() async {
+  Future<WeatherResponse> getWeatherData({required String city}) async {
     Uri uri = Uri.parse(
-        'http://api.openweathermap.org/data/2.5/weather?q=Mumbai&appid=fe9c862d031a1ffc04111157bb5a3163');
+        'http://api.openweathermap.org/data/2.5/weather?q=$city&appid=fe9c862d031a1ffc04111157bb5a3163');
     http.Response response = await http.get(uri);
 
     if (response.statusCode == 200) {
